@@ -1,56 +1,28 @@
-# Homelab
+# Homelab Infrastructure
 
-This repository documents my personal **homelab infrastructure**, where I experiment with networking, Linux administration, VPN architecture, Docker services, and self-hosted systems.
+Welcome to my **personal homelab**, where I experiment with Linux servers, networking, VPN architectures, Docker services, and self-hosted systems.
 
-The purpose of this lab is to learn by building real systems and documenting how they are designed and operated.
-
----
-
-# Goals
-
-The homelab is used to:
-
-- practice Linux server administration
-- experiment with networking and VPN architectures
-- run self-hosted services
-- build and test infrastructure setups
-- document practical learning and experiments
+This repository documents the infrastructure, architecture, and experiments running in my self-hosted environment.
 
 ---
 
-# Infrastructure
+# Homelab Dashboard
 
-The current lab environment includes both **local infrastructure** and **remote infrastructure**.
+## Infrastructure Overview
 
-## Local Server
-
-Main self-hosted machine running multiple services.
-
-System:
-
-- Ubuntu Server
-- Docker
-- development environment
-- game server experiments
-- infrastructure testing
-
----
-
-## Remote Infrastructure
-
-A VPS with a public IP address used to enable remote connectivity.
-
-Main roles:
-
-- WireGuard VPN hub
-- secure remote access
-- bridge between external network and local services
+| Component | Description |
+|----------|-------------|
+| Local Server | Ubuntu Server running services and experiments |
+| VPS | Public server used as VPN hub |
+| VPN | WireGuard tunnel connecting local network to VPS |
+| Docker | Containerized services and experiments |
+| Self-hosted services | Development tools, game servers, and infrastructure tests |
 
 ---
 
 # Network Architecture
 
-The homelab network is designed to work even with the local network behind CGNAT.
+The homelab network is designed to work even when the local network is behind CGNAT.
 
 High-level topology:
 
@@ -72,36 +44,75 @@ VPS (Public IP)
 ▼
 Private VPN Network
 
+Detailed network documentation:
 
-This architecture allows secure remote access to the internal network.
+→ `network/topology.md`
+
+---
+
+# Services and Experiments
+
+Examples of workloads running in the lab:
+
+- Docker services
+- game server experiments
+- development environments
+- networking experiments
+- infrastructure testing
+
+More details:
+
+→ `services/services.md`
+
+---
+
+# Documentation
+
+Main documentation sections:
+
+| Section | Description |
+|-------|-------------|
+| `docs/` | general documentation |
+| `network/` | network architecture and VPN |
+| `services/` | services and workloads |
 
 ---
 
 # Technologies Used
 
-Core technologies used in the homelab:
+Core technologies used in this environment:
 
 - Linux (Ubuntu Server)
 - Docker
 - WireGuard VPN
 - Git
-- self-hosted services
 - networking and system administration
+- self-hosted infrastructure
 
 ---
 
 # Related Projects
 
-This homelab connects with other repositories that document specific parts of the infrastructure:
+This homelab connects to other repositories documenting specific infrastructure components.
 
-- VPN infrastructure  
-  https://github.com/amadeuberaldin/wireguard-vpn-infrastructure
+VPN Infrastructure  
+https://github.com/amadeuberaldin/wireguard-vpn-infrastructure
 
-- AI agent infrastructure  
-  https://github.com/amadeuberaldin/ai-agent-infrastructure
+AI Agent Infrastructure  
+https://github.com/amadeuberaldin/ai-agent-infrastructure
+
+---
+
+# Learning Philosophy
+
+This homelab follows a simple principle:
+
+**learn infrastructure by building real systems and documenting them.**
+
+Experiments evolve over time as new services, tools, and architectures are explored.
 
 ---
 
 # Status
 
-This homelab is continuously evolving as new services, experiments, and infrastructure improvements are added.
+This repository is continuously updated as the homelab grows and new infrastructure components are added.

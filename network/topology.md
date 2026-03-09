@@ -1,29 +1,33 @@
 # Network Topology
 
-This homelab uses a local server behind CGNAT, connected to a VPS through WireGuard.
+This document describes the network architecture used in the homelab.
 
-## High-Level Topology
+The environment connects a local server behind CGNAT to a VPS with a public IP using WireGuard.
 
-Internet  
-↓  
-ISP Router (CGNAT)  
-↓  
-Local Network  
-↓  
-Ubuntu Server  
-↓  
-WireGuard Tunnel  
-↓  
-VPS with public IP
+---
 
-## Purpose
+## Network Diagram
 
-This design allows secure remote access to internal services even when the local network is behind CGNAT.
+```mermaid
+flowchart TD
 
-## Main Components
+Internet[Internet]
 
-- ISP router
-- local Ubuntu server
-- VPS with public IP
-- WireGuard VPN
-- private access to services
+Router[ISP Router\nCGNAT]
+
+LAN[Local Network\n192.168.100.0/24]
+
+Server[Ubuntu Server\n192.168.100.50]
+
+VPN[WireGuard Tunnel\n10.10.10.0/24]
+
+VPS[VPS\nWireGuard Hub\n10.10.10.1]
+
+Services[Self Hosted Services\nDocker\nMinecraft\nAI Agents]
+
+Internet --> Router
+Router --> LAN
+LAN --> Server
+Server --> VPN
+VPN --> VPS
+Server --> Services
